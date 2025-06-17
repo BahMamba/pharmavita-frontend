@@ -1,0 +1,33 @@
+<mat-card class="login-card">
+  <h2 class="login-title">Connexion</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Entrez votre email" formControlName="email" type="email" autocomplete="email" />
+      <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+        L'email est requis.
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+        Veuillez saisir un email valide.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Mot de passe</mat-label>
+      <input matInput placeholder="Entrez votre mot de passe" formControlName="password" type="password" autocomplete="current-password" />
+      <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+        Le mot de passe est requis.
+      </mat-error>
+      <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+        Minimum 5 caractères.
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid" class="full-width">
+      Se connecter
+    </button>
+  
+  </form>
+</mat-card>

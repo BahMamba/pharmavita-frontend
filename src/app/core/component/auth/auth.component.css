@@ -1,0 +1,21 @@
+.login-card {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  background-color: #f9fafe;
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #1976d2;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
