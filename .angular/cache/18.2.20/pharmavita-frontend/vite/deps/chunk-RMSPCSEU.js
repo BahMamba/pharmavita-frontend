@@ -5541,6 +5541,7 @@ export {
   hasModifierKey,
   coerceBooleanProperty,
   coerceNumberProperty,
+  _isNumberValue,
   coerceArray,
   coerceCssPixelValue,
   coerceElement,
@@ -5564,4 +5565,4 @@ export {
   MatPseudoCheckboxModule,
   MatRippleLoader
 };
-//# sourceMappingURL=chunk-UYXEKN62.js.map
+//# sourceMappingURL=chunk-RMSPCSEU.js.map

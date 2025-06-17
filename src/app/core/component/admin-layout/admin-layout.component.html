@@ -1,0 +1,27 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <div class="sidenav-header">
+      <mat-icon>person</mat-icon>
+      <h3>Bonjour, {{ (userProfile$ | async)?.firstname }}</h3>
+    </div>
+    <mat-nav-list class="nav-list">
+      <a mat-list-item routerLink="/admin/dashboard" routerLinkActive="active">
+        <mat-icon matListIcon>dashboard</mat-icon>
+        Dashboard
+      </a>
+      <a mat-list-item routerLink="/admin/pharmacists" routerLinkActive="active">
+        <mat-icon matListIcon>group</mat-icon>
+        Gérer les pharmaciens
+      </a>
+    </mat-nav-list>
+    <div class="sidenav-footer">
+      <button mat-button color="warn" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Déconnexion
+      </button>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
