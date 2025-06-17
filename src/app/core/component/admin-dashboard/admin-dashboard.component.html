@@ -1,5 +1,39 @@
-<mat-toolbar color="primary">Tableau de bord Admin</mat-toolbar>
-    <mat-card class="dashboard-card">
-      <h2>Bienvenue, Admin !</h2>
-      <p>Vous pouvez gérer les utilisateurs, les stocks et les rapports.</p>
-    </mat-card>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <div class="sidenav-header">
+      <mat-icon>person</mat-icon>
+      <h3>Bonjour, {{ (userProfile$ | async)?.firstname }}</h3>
+    </div>
+    <mat-nav-list class="nav-list">
+      <a mat-list-item routerLink="/admin-dashboard" routerLinkActive="active">
+        <mat-icon matListIcon>dashboard</mat-icon>
+        Dashboard
+      </a>
+      <a mat-list-item routerLink="/admin/pharmacists" routerLinkActive="active">
+        <mat-icon matListIcon>group</mat-icon>
+        Gérer les pharmaciens
+      </a>
+    </mat-nav-list>
+    <div class="sidenav-footer">
+      <button mat-button color="warn" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Déconnexion
+      </button>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <span>Tableau de bord Admin</span>
+    </mat-toolbar>
+    <div class="dashboard-content">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>Bienvenue, {{ (userProfile$ | async)?.firstname }} !</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Vous pouvez gérer les utilisateurs, les stocks et les rapports.</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
