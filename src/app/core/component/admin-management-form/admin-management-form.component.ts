@@ -36,7 +36,7 @@ export class PharmacistFormComponent implements OnInit {
     private adminService: AdminService,
     private router: Router,
     private route: ActivatedRoute,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar 
   ) {
     this.pharmaForm = this.fb.group({
       firstname: ['', [Validators.required, Validators.minLength(2)]],

@@ -1,73 +1,89 @@
+/* src/app/features/admin/admin-layout.component.css */
 .sidenav-container {
   height: 100vh;
-  background-color: var(--background-color, #E8F5E9);
 }
 
 .sidenav {
   width: 250px;
-  background-color: var(--sidebar-bg, #F1F8E9);
-  border-right: 1px solid #e0e0e0;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  background-color: #4CAF50; /* Vert-médical */
+  color: #ffffff; /* Texte blanc pour contraste */
 }
 
 .sidenav-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 16px;
-  border-bottom: 1px solid #e0e0e0;
+  gap: 10px;
+  padding: 16px 20px;
+  background-color: #388E3C; /* Vert plus sombre pour l'en-tête */
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff; /* Séparateur subtil */
 }
 
 .sidenav-header mat-icon {
-  font-size: 32px;
-  width: 32px;
-  height: 32px;
-  color: var(--primary-color, #4CAF50);
-}
-
-.sidenav-header h3 {
-  margin: 0;
-  font-size: 18px;
-  color: var(--text-color, #212121);
+  color: #ffffff;
 }
 
 .nav-list {
-  flex-grow: 1;
+  padding: 0px;
+}
+
+.nav-list-title {
+  font-family: Roboto, sans-serif;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 16px 20px;
+  margin: 0;
 }
 
 mat-nav-list a {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--text-color, #212121);
+  color: #ffffff;
+  font-family: Roboto, sans-serif;
+  transition: background-color 0.3s;
+}
+
+mat-nav-list a:hover {
+  background-color: #388E3C; /* Vert plus sombre au survol */
 }
 
 mat-nav-list a.active {
-  background-color: var(--primary-color, #4CAF50);
-  color: white;
+  background-color: #2E7D32; /* Vert encore plus sombre pour l'élément actif */
+  font-weight: bold;
 }
 
-mat-nav-list a mat-icon {
-  color: inherit;
+mat-nav-list mat-icon {
+  color: #ffffff;
+  margin-right: 16px;
 }
 
 .sidenav-footer {
-  padding: 16px;
-  border-top: 1px solid #e0e0e0;
+  position: absolute;
+  bottom: 16px;
+  width: 100%;
+  padding: 16px 20px;
 }
 
 .sidenav-footer button {
+  color: #ffffff;
   width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  text-align: left;
+}
+
+.sidenav-footer mat-icon {
+  margin-right: 8px;
 }
 
 @media (max-width: 600px) {
   .sidenav {
     width: 200px;
+  }
+  .sidenav-header {
+    padding: 12px;
+  }
+  .nav-list-title {
+    padding: 12px;
+  }
+  .sidenav-footer {
+    padding: 12px;
   }
 }

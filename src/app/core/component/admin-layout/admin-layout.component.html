@@ -1,3 +1,4 @@
+<!-- src/app/core/component/admin-layout/admin-layout.component.html -->
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav mode="side" opened class="sidenav">
     <div class="sidenav-header">
@@ -12,6 +13,14 @@
       <a mat-list-item routerLink="/admin/pharmacists" routerLinkActive="active">
         <mat-icon matListIcon>group</mat-icon>
         Gérer les pharmaciens
+      </a>
+      <a mat-list-item routerLink="/admin/products/sales" routerLinkActive="active">
+        <mat-icon matListIcon>shopping_cart</mat-icon>
+        Vente des médicaments
+      </a>
+      <a mat-list-item routerLink="/admin/products/stock-list" routerLinkActive="active">
+        <mat-icon matListIcon>inventory_2</mat-icon>
+        Gérer les stocks
       </a>
     </mat-nav-list>
     <div class="sidenav-footer">

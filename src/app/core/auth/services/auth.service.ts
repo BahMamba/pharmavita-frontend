@@ -66,7 +66,7 @@ export class AuthService {
   }
 
   private redirectBasedOnRole(role: 'ADMIN' | 'PHARMACIST'): void {
-    const route = role === 'ADMIN' ? '/admin' : '/pharmacist-dashboard';
+    const route = role === 'ADMIN' ? '/admin/dashboard' : '/pharmacist-dashboard';
     this.router.navigate([route]);
   }
 }

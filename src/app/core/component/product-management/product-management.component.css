@@ -1,0 +1,68 @@
+.content-container {
+  padding: 24px;
+  background-color: #E8F5E9;
+  min-height: calc(100vh - 64px);
+}
+
+.filter-container {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.filter-field {
+  max-width: 300px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.product-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+mat-card-header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+}
+
+mat-card-content {
+  padding: 16px;
+}
+
+mat-card-actions {
+  padding: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.spinner {
+  margin: 50px auto;
+}
+
+mat-toolbar {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+@media (max-width: 600px) {
+  .content-container {
+    padding: 16px;
+  }
+  .filter-container {
+    flex-direction: column;
+  }
+  .filter-field {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,52 @@
+<mat-toolbar color="primary">
+  <span>Produits à vendre</span>
+  <span class="spacer"></span>
+  <button mat-icon-button [routerLink]="['/pharmacist/products/restock']" matTooltip="Voir les produits à réapprovisionner">
+    <mat-icon>inventory</mat-icon>
+  </button>
+</mat-toolbar>
+<div class="content-container">
+  <div class="filter-container">
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Rechercher par nom</mat-label>
+      <input matInput [(ngModel)]="filter" (keyup.enter)="applyFilter()" placeholder="Rechercher un produit" title="Rechercher par nom">
+      <button mat-icon-button matSuffix (click)="applyFilter()">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Catégorie</mat-label>
+      <mat-select [(ngModel)]="selectedCategory" (selectionChange)="applyFilter()">
+        <mat-option value="">Toutes</mat-option>
+        <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <mat-spinner *ngIf="isLoading" class="spinner"></mat-spinner>
+  <div class="cards-container" *ngIf="!isLoading">
+    <mat-card class="product-card" *ngFor="let product of products.content">
+      <mat-card-header>
+        <mat-card-title>{{ product.name }}</mat-card-title>
+        <mat-card-subtitle>Categorie : {{ product.category }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Prix : {{ product.price | currency:' GNF ' }}</p>
+        <p>Stock : {{ product.stock }}</p>
+        <p>Statut : {{ product.status }}</p>
+        <p>Production : {{ product.manufacturingDate | date:'dd/MM/yyyy' }}</p>
+        <p>Expiration : {{ product.expirationDate | date:'dd/MM/yyyy' }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="addToOrder(product)">Ajouter à la commande</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <mat-paginator
+    [length]="products.totalElements"
+    [pageSize]="pageSize"
+    [pageIndex]="page"
+    [pageSizeOptions]="[6, 12, 24]"
+    (page)="handlePageEvent($event)"
+    *ngIf="!isLoading">
+  </mat-paginator>
+</div>

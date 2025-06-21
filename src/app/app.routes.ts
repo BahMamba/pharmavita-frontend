@@ -22,16 +22,40 @@ export const routes: Routes = [
         loadComponent: () => import('./core/component/admin-management/admin-management.component').then(m => m.AdminManagementComponent)
       },
       {
-        path: 'new',
+        path: 'pharmacist/create',
         loadComponent: () => import('./core/component/admin-management-form/admin-management-form.component').then(m=> m.PharmacistFormComponent)
       },
       {
         path: 'pharmacist/:id',
         loadComponent: () => import('./core/component/admin-management-form/admin-management-form.component').then(m=> m.PharmacistFormComponent)
 
+      },
+
+      {
+        path: 'products/sales',
+        loadComponent: () => import('./core/component/product-management/product-management.component').then(m=> m.ProductManagementComponent)
+      },
+
+      {
+        path: 'products/stock-list',
+        loadComponent: () => import('./core/component/product-admin-list/product-admin-list.component').then(m => m.ProductAdminListComponent)
+      },
+
+      {
+        path: 'products/create',
+        loadComponent: () => import('./core/component/product-admin-form/product-admin-form.component').then(m => m.ProductAdminFormComponent)
+      },
+
+      {
+        path: 'products/restock/:id',
+        loadComponent: () => import('./core/component/product-restock-form/product-restock-form.component').then(m => m.ProductRestockFormComponent)
+      },
+
+      {
+        path: 'products/edit/:id',
+        loadComponent: () => import('./core/component/product-admin-form/product-admin-form.component').then(m => m.ProductAdminFormComponent)
       }
-     
-     
+
     ]
   },
   {
