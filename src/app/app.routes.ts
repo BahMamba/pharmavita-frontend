@@ -54,6 +54,11 @@ export const routes: Routes = [
       {
         path: 'products/edit/:id',
         loadComponent: () => import('./core/component/product-admin-form/product-admin-form.component').then(m => m.ProductAdminFormComponent)
+      },
+
+      {
+        path: 'products/sales/manage',
+        loadComponent: () => import('./core/component/product-sale/product-sale.component').then(m => m.ProductSaleComponent)
       }
 
     ]
@@ -63,5 +68,6 @@ export const routes: Routes = [
     loadComponent: () => import('./core/component/pharmacist-dashboard/pharmacist-dashboard.component').then(m => m.PharmacistDashboardComponent),
     canActivate: [authGuard],
     data: { roles: ['PHARMACIST'] }
-  }
+  },
+
 ];

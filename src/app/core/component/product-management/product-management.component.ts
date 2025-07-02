@@ -10,8 +10,10 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ProductsService, Product, Page } from '../../auth/services/products.service';
+import { SaleService } from '../../auth/services/sale.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product-sales',
@@ -19,6 +21,7 @@ import { ProductsService, Product, Page } from '../../auth/services/products.ser
   imports: [
     CommonModule,
     FormsModule,
+    MatIconModule,
     MatCardModule,
     MatButtonModule,
     MatInputModule,
@@ -42,7 +45,11 @@ export class ProductManagementComponent implements OnInit {
   page = 0;
   pageSize = 12;
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductsService,
+    private saleService: SaleService,
+    private snackBar: MatSnackBar,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loadProducts();
@@ -80,6 +87,13 @@ export class ProductManagementComponent implements OnInit {
   }
 
   addToOrder(product: Product): void {
-    console.log(`Produit ${product.name} ajouté à la commande`);
+  if (product.stock < 1) {
+      this.snackBar.open('Stock insuffisant', 'Fermer', { duration: 4000 });
+      return;
+    }
+    console.log('Adding product ID:', product.id); // Log pour débogage
+    this.saleService.addToOrder(product.id, 1);
+    this.snackBar.open(`${product.name} ajouté à la commande`, 'Fermer', { duration: 4000 });
+    this.router.navigate(['/admin/products/sales/manage']);
   }
 }
