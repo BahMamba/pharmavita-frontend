@@ -23,7 +23,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     RouterModule
   ],
   templateUrl: './product-sale.component.html',
-  styleUrls: ['./product-sale.component.css']
+  styleUrl: './product-sale.component.css'
 })
 export class ProductSaleComponent implements OnInit {
   orderItems: SaleItem[] = [];

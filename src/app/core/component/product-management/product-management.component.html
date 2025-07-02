@@ -1,5 +1,5 @@
 <mat-toolbar color="primary" class="toolbar">
-  <span>Medicaments et Produits dispo</span>
+  <span>Médicaments et Produits dispo</span>
   <span class="spacer"></span>
   <button mat-icon-button [routerLink]="['/pharmacist/products/restock']" matTooltip="Voir les produits à réapprovisionner">
     <mat-icon>inventory</mat-icon>
@@ -24,13 +24,16 @@
     <button mat-raised-button color="accent" class="manage-orders-btn" [routerLink]="['/admin/products/sales/manage']">
       <mat-icon>shopping_cart</mat-icon> Gérer les commandes
     </button>
+    <button mat-raised-button color="accent" class="view-sales-btn" [routerLink]="['/admin/products/sales/by-pharma']">
+      <mat-icon>history</mat-icon> Consulter vos ventes
+    </button>
   </div>
   <mat-spinner *ngIf="isLoading" class="spinner"></mat-spinner>
   <div class="cards-container" *ngIf="!isLoading">
     <mat-card class="product-card" *ngFor="let product of products.content">
       <mat-card-header>
         <mat-card-title class="product-title">{{ product.name }}</mat-card-title>
-        <mat-card-subtitle>Categorie : {{ product.category }}</mat-card-subtitle>
+        <mat-card-subtitle>Catégorie : {{ product.category }}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p>Prix : {{ product.price | currency:'GNF' }}</p>

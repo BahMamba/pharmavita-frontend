@@ -38,7 +38,7 @@
   color: #4CAF50;
 }
 
-.manage-orders-btn {
+.manage-orders-btn, .view-sales-btn {
   background-color: #FFB300; /* Accent jaune */
   color: #333;
   border-radius: 4px;
@@ -47,12 +47,12 @@
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.manage-orders-btn:hover {
+.manage-orders-btn:hover, .view-sales-btn:hover {
   background-color: #FFA000;
   transform: scale(1.05);
 }
 
-.manage-orders-btn mat-icon {
+.manage-orders-btn mat-icon, .view-sales-btn mat-icon {
   margin-right: 8px;
 }
 
@@ -126,8 +126,9 @@ mat-card-content p {
     align-items: stretch;
   }
 
-  .filter-field, .manage-orders-btn {
+  .filter-field, .manage-orders-btn, .view-sales-btn {
     max-width: 100%;
+    margin-bottom: 8px;
   }
 
   .cards-container {

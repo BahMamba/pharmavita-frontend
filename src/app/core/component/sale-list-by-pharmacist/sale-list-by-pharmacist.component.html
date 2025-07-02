@@ -1,0 +1,34 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span>Historique de vos ventes</span>
+</mat-toolbar>
+<div class="content-container">
+  <mat-spinner *ngIf="isLoading" class="spinner"></mat-spinner>
+  <div *ngIf="!isLoading">
+    <div class="sales-list-container" *ngIf="sales.content.length > 0">
+      <div class="sale-item" *ngFor="let sale of sales.content">
+        <div class="sale-header">
+          <div class="sale-date">Vente du {{ sale.saleDate | date:'dd/MM/yyyy HH:mm' }}</div>
+          <div class="sale-amount">Montant total: {{ sale.saleAmount | currency:'GNF' }}</div>
+        </div>
+        <div class="items-list">
+          <div class="item-details" *ngFor="let item of sale.items">
+            <div class="item-name highlighted">{{ item.product.name }}</div>
+            <div class="item-price">Prix unitaire: {{ item.unitPrice | currency:'GNF' }}</div>
+            <div class="item-quantity">Quantité: {{ item.quantity }}</div>
+            <div class="item-total">Total: {{ (item.unitPrice * item.quantity) | currency:'GNF' }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p *ngIf="sales.content.length === 0" class="empty-message">Aucune vente trouvée.</p>
+    <mat-paginator
+      [length]="sales.totalElements"
+      [pageSize]="pageSize"
+      [pageIndex]="page"
+      [pageSizeOptions]="[5, 10, 20]"
+      (page)="handlePageEvent($event)"
+      *ngIf="sales.content.length > 0"
+      class="paginator">
+    </mat-paginator>
+  </div>
+</div>

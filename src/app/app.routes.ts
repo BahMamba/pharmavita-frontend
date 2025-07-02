@@ -59,6 +59,11 @@ export const routes: Routes = [
       {
         path: 'products/sales/manage',
         loadComponent: () => import('./core/component/product-sale/product-sale.component').then(m => m.ProductSaleComponent)
+      },
+
+      {
+        path: 'products/sales/by-pharma',
+        loadComponent: () => import('./core/component/sale-list-by-pharmacist/sale-list-by-pharmacist.component').then(m => m.SaleListByPharmacistComponent)
       }
 
     ]

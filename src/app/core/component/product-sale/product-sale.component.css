@@ -1,30 +1,47 @@
-/* General container */
 .content-container {
   max-width: 1200px;
   margin: 20px auto;
   padding: 0 16px;
 }
 
-/* Toolbar */
 .toolbar {
-  background-color: #4CAF50; /* Vert Pharma GDD */
+  background-color: #4CAF50;
   color: white;
   font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
 }
 
 .spacer {
   flex: 1 1 auto;
 }
 
-/* Order list */
+.toolbar button[mat-raised-button] {
+  background-color: #FFB300;
+  color: #333;
+  border-radius: 4px;
+  margin-left: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.toolbar button[mat-raised-button]:hover {
+  background-color: #FFA000;
+  transform: scale(1.05);
+}
+
+.toolbar button[mat-raised-button] mat-icon {
+  margin-right: 8px;
+}
+
 .order-list-container {
-  background-color: #E8F5E9; /* Vert clair */
+  background-color: #E8F5E9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 16px;
 }
 
-/* Order item */
 .order-item {
   display: flex;
   justify-content: space-between;
@@ -54,7 +71,7 @@
   font-weight: bold;
   font-size: 16px;
   color: #333;
-  background-color: #E8F5E9; /* Fond vert clair pour le nom */
+  background-color: #E8F5E9;
   padding: 4px 8px;
   border-radius: 4px;
   flex: 1 1 200px;
@@ -62,7 +79,7 @@
 }
 
 .item-name.highlighted:hover {
-  background-color: #C8E6C9; /* Vert légèrement plus foncé au hover */
+  background-color: #C8E6C9;
 }
 
 .item-stock, .item-price, .item-total {
@@ -77,7 +94,7 @@
 }
 
 .quantity-btn {
-  background-color: #4CAF50; /* Vert Pharma GDD */
+  background-color: #4CAF50;
   color: white;
   border-radius: 50%;
   width: 32px;
@@ -89,7 +106,7 @@
 }
 
 .quantity-btn:hover {
-  background-color: #388E3C; /* Vert plus foncé au hover */
+  background-color: #388E3C;
   transform: scale(1.1);
 }
 
@@ -122,7 +139,6 @@
   transform: scale(1.1);
 }
 
-/* Buttons */
 button[color="primary"] {
   background-color: #4CAF50;
   color: white;
@@ -136,17 +152,6 @@ button[color="primary"]:hover {
   background-color: #388E3C;
 }
 
-button[color="accent"] {
-  background-color: #FFB300;
-  color: #333;
-  border-radius: 4px;
-}
-
-button[color="accent"]:hover {
-  background-color: #FFA000;
-}
-
-/* Total container */
 .total-container {
   display: flex;
   justify-content: flex-end;
@@ -164,7 +169,6 @@ button[color="accent"]:hover {
   color: #333;
 }
 
-/* Empty message */
 .empty-message {
   text-align: center;
   font-size: 18px;
@@ -172,12 +176,10 @@ button[color="accent"]:hover {
   margin-top: 20px;
 }
 
-/* Spinner */
 .spinner {
   margin: 50px auto;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   .order-item {
     flex-direction: column;
@@ -208,9 +210,5 @@ button[color="accent"]:hover {
     margin-bottom: 10px;
   }
 
-  button[color="primary"],
-  button[color="accent"] {
-    width: 100%;
-    padding: 10px;
-  }
+  
 }

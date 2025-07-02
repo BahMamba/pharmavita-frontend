@@ -1,7 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+
+
+export interface Page<T> {
+  content: T[];
+  totalElements: number;
+  totalPages: number;
+  number: number;
+  size: number;
+}
+
 
 export interface SaleItemRequest {
   productId: number;
@@ -90,6 +100,17 @@ export class SaleService {
   getReceipt(saleId: number): Observable<Blob> {
     return this.http.get(`${this.baseUrl}/${saleId}/receipt`, { responseType: 'blob' }).pipe(
       catchError(() => throwError(() => new Error('Erreur lors de la génération du reçu')))
+    );
+  }
+
+
+  getMySales(page: number = 0, size: number = 10, sortBy: string = 'saleDate'): Observable<Page<Sale>>{
+    const params = new HttpParams()
+        .set('page', page.toString())
+        .set('size', size.toString())
+        .set('sortBy', sortBy.toString())
+    return this.http.get<Page<Sale>>(`${this.baseUrl}/my-sales`, {params}).pipe(
+            catchError(() => throwError(() => new Error('Erreur lors de la récupération des ventes')))
     );
   }
 }
